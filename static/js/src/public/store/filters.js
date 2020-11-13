@@ -93,6 +93,8 @@ function getCharmsList() {
       handleShowAllOperators(charms);
       handlePlatformChange(charms);
       handleCategoryFilters(charms);
+      handleMobileFilters();
+      handleMobilePlatforms();
 
       // if (platformQuery || categoriesQuery) {
       //   hideFeatured();
@@ -420,6 +422,32 @@ function disableFiltersByPlatform(charms) {
     } else {
       filter.disabled = true;
     }
+  });
+}
+
+function handleMobileFilters() {
+  const filters = document.querySelector("[data-js='filter-handler']");
+  const filterButton = document.querySelector(
+    "[data-js='mobile-filter-reveal-button']"
+  );
+
+  filterButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    filters.classList.add("is-active");
+  });
+}
+
+function handleMobilePlatforms() {
+  const platforms = document.querySelector(
+    "[data-js='mobile-platform-handler']"
+  );
+  const platformButton = document.querySelector(
+    "[data-js='mobile-platform-reveal-button']"
+  );
+
+  platformButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    platforms.classList.add("is-active");
   });
 }
 
