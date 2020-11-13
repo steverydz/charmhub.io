@@ -356,19 +356,24 @@ function disableFiltersByPlatform(charms) {
 }
 
 function handleMobileFilters() {
-  const filters = document.querySelector("[data-js='filter-handler']");
+  const filtersPanel = document.querySelector("[data-js='filter-handler']");
   const filterButton = document.querySelector(
     "[data-js='mobile-filter-reveal-button']"
   );
 
   filterButton.addEventListener("click", (e) => {
     e.preventDefault();
-    filters.classList.add("is-active");
+    filtersPanel.classList.add("is-active");
   });
 
   // click desired filters
-  // click show results
-  // menu slides down
+  const showResultsButton = document.querySelector("[data-js='filter-submit']");
+
+  showResultsButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    filtersPanel.classList.remove("is-active");
+  });
+
   // page is filtered by categories
   // click reset
   // categories are unchcked
@@ -392,12 +397,9 @@ function handleMobilePlatforms() {
   });
 
   const platformOptions = platformPanel.querySelectorAll("input[type='radio']");
-  console.log("platformOptions", platformOptions);
 
-  // click a platform
   platformOptions.forEach((platformOption) => {
     platformOption.addEventListener("click", () => {
-      // menu slides down
       platformPanel.classList.remove("is-active");
 
       // page is filtered by platform
