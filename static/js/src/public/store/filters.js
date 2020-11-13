@@ -378,21 +378,31 @@ function handleMobileFilters() {
 }
 
 function handleMobilePlatforms() {
-  const platforms = document.querySelector(
+  const platformPanel = document.querySelector(
     "[data-js='mobile-platform-handler']"
   );
+
   const platformButton = document.querySelector(
     "[data-js='mobile-platform-reveal-button']"
   );
 
   platformButton.addEventListener("click", (e) => {
     e.preventDefault();
-    platforms.classList.add("is-active");
+    platformPanel.classList.add("is-active");
   });
 
+  const platformOptions = platformPanel.querySelectorAll("input[type='radio']");
+  console.log("platformOptions", platformOptions);
+
   // click a platform
-  // menu slides down
-  // page is filtered by platform
+  platformOptions.forEach((platformOption) => {
+    platformOption.addEventListener("click", () => {
+      // menu slides down
+      platformPanel.classList.remove("is-active");
+
+      // page is filtered by platform
+    });
+  });
 }
 
 export { getCharmsList };
