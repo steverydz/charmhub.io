@@ -365,6 +365,16 @@ function handleMobileFilters() {
     e.preventDefault();
     filters.classList.add("is-active");
   });
+
+  // click desired filters
+  // click show results
+  // menu slides down
+  // page is filtered by categories
+  // click reset
+  // categories are unchcked
+  // click show results
+  // menu slides down
+  // page unfiltered
 }
 
 function handleMobilePlatforms() {
@@ -379,6 +389,10 @@ function handleMobilePlatforms() {
     e.preventDefault();
     platforms.classList.add("is-active");
   });
+
+  // click a platform
+  // menu slides down
+  // page is filtered by platform
 }
 
 export { getCharmsList };
